@@ -1,0 +1,26 @@
+{
+  "name": "test_db",
+  "version": "1.0.0",
+  "description": "Excercise 1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev" : "npx nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AntonioMM8506/test_db.git"
+  },
+  "author": "Antonio Maldonado",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AntonioMM8506/test_db/issues"
+  },
+  "homepage": "https://github.com/AntonioMM8506/test_db#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.12"
+  }
+}
