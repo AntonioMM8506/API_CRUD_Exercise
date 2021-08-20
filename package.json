@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AntonioMM8506/test_db.git"
+    "url": "git+https://github.com/AntonioMM8506/API_CRUD_Exercise.git"
   },
   "author": "Antonio Maldonado",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/AntonioMM8506/test_db/issues"
+    "url": "https://github.com/AntonioMM8506/API_CRUD_Exercise/issues"
   },
-  "homepage": "https://github.com/AntonioMM8506/test_db#readme",
+  "homepage": "https://github.com/AntonioMM8506/API_CRUD_Exercise#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "dotenv": "^10.0.0",
