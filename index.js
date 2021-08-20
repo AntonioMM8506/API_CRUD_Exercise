@@ -1,4 +1,5 @@
 //Dependencies --------------------------------------------------------
+require('dotenv').config();
 const express = require('express');
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
@@ -9,10 +10,10 @@ app.use(bodyParser.json());
 
 //Database Connection -------------------------------------------------
 const conection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'Fernanda8506',
-    database: 'employees'
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME
 });
 
 conection.connect(error => {
