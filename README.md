@@ -7,7 +7,11 @@
 
 ## Instructions
 - Clone the repository
-- install the dependencies
+- Install the database in your MySQL instance
+```
+mysql< employees.sql
+```
+- install all the framework dependencies
 ```
 npm i 
 ```
@@ -20,3 +24,14 @@ npm i
 ```
 npm run dev
 ```
+# Example
+- To use the CRUD application with Postman
+    - To Read (GET)
+        - The first 100 entries of a table
+        ```
+        http://localhost:3000/employees/1
+        ```
+        - An specific entrie by given ID
+        ```
+        http://localhost:3000/employees/emp_no/10076
+        ```
