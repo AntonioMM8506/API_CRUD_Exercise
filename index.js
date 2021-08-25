@@ -7,9 +7,13 @@ const port = process.env.PORT || 3000;
 
 //Import controllers 
 const employees = require('./controller/employees');
+const departments = require('./controller/departments');
+const salaries = require('./controller/salaries');
+const titles = require('./controller/titles');
 
-const bodyParser = require('body-parser');
-app.use(bodyParser.json());
+//body-parsing
+app.use(express.json());
+app.use(express.urlencoded({ extended: true}));
 
 //Port Listening
 app.listen(port, () => console.log('Server Running on PORT: ' + port));
@@ -32,17 +36,33 @@ app.put('/employees/updateBy_emp_no/:id', (req, res) => { employees.putUpdateEmp
 //Deletes a row according to the given id
 app.delete('/employees/deleteBy_emp_no/:id', (req, res)=>{ employees.deleteEmployeeByID(req, res, req.params.id) });
 
-//TODO
-//Salaries .....................................
 
-//TODO
-//Titles .......................................
-
-//TODO
+//The same strcuture is repeated for the other tables
+//TODO POST, PUT, DELETE
 //Departments .................................
+app.get('/departments/:id', (req, res) => { departments.getDataByPage(req, res, req.params.id) });
+app.get('/departments/dept_no/:id', (req, res) => { departments.getDataByID(req, res, req.params.id) });
 
-//TODO ?
-//Dept_Emp
-//Dept_Emp_Latest_Date
-//Dept_Mananger
 
+//TODO POST, PUT, DELETE
+//Salaries .....................................
+app.get('/salaries/:id', (req, res) => {  });
+app.get('/salaries/emp_no/:id', (req, res) => {  });
+
+
+//TODO POST, PUT, DELETE
+//Titles .......................................
+app.get('/titles/:id', (req, res) => {  });
+app.get('/titles/emp_no/:id', (req, res) => {  });
+
+
+//TODO POST, PUT, DELETE
+//Dept_Emp .....................................
+app.get('/dept_emp/:id', (req, res) => {  });
+app.get('/dept_emp/emp_no/:id', (req, res) => {  });
+
+
+//TODO POST, PUT, DELETE
+//Dept_Mananger ................................
+app.get('/dept_manager/:id', (req, res) => {  });
+app.get('/dept_manager/dept_no/:id', (req, res) => {  });

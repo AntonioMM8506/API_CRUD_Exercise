@@ -36,9 +36,9 @@ getDataByPage = (req, res, page) => {
  * Description: Returns a single element corresponding to the givne id
  */
 getDataByID = (req, res, id) => {
-    let sql = `SELECT * FROM employees WHERE emp_no = ${id}`;
+    let sql = `SELECT * FROM employees WHERE emp_no = ?`;
 
-    return db_connection.query(sql, (error, results) => {
+    return db_connection.query(sql, id, (error, results) => {
         if(error){
             throw error;
         }
@@ -81,9 +81,9 @@ postAddEmployee = (req, res, body) => {
  * Description: Updates a row with the given ID
  */
 putUpdateEmployee = (req, res, id, body) => {
-    let sql = `UPDATE employees SET birth_date="${body.birth_date}", first_name="${body.first_name}", last_name="${body.last_name}", gender="${body.gender}", hire_date="${body.hire_date}" WHERE emp_no=${id}`;
+    let sql = `UPDATE employees SET birth_date="${body.birth_date}", first_name="${body.first_name}", last_name="${body.last_name}", gender="${body.gender}", hire_date="${body.hire_date}" WHERE emp_no=?`;
 
-    return db_connection.query(sql, error => {
+    return db_connection.query(sql, id, error => {
         if(error){
             throw error;
         }else{
@@ -97,9 +97,9 @@ putUpdateEmployee = (req, res, id, body) => {
  * Description: Deletes a row corresponded to the given ID
  */
 deleteEmployeeByID = (req, res, id) => {
-    let sql = `DELETE FROM employees WHERE emp_no = ${id}`;
+    let sql = `DELETE FROM employees WHERE emp_no = ?`;
 
-    return db_connection.query(sql, error => {
+    return db_connection.query(sql, id, error => {
         if(error){
             throw error;
         }else{
