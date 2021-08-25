@@ -26,7 +26,7 @@ npm run dev
 ```
 # Example
 - To use the CRUD application with Postman
-    - To Read (GET)
+    - To Read **(GET)**
         - The first 100 entries of a table
         ```
         http://localhost:3000/employees/1
@@ -34,4 +34,33 @@ npm run dev
         - An specific entrie by given ID
         ```
         http://localhost:3000/employees/emp_no/10076
+        ```
+    - To Insert into a table **(POST)**
+        ```
+        http://localhost:3000/employees/addEmployee
+
+        {
+                "emp_no": "123456",
+                "birth_date": "1965-08-09",
+                "first_name": "Peter",
+                "last_name": "Parker",
+                "gender": "M",
+                "hire_date": "1998-09-06"
+        }
+        ```
+    - To Update a specific row by given ID **(PUT)**
+        ```
+        http://localhost:3000/employees/updateBy_emp_no/10076
+
+        {
+            "birth_date": "1958-07-06",
+            "first_name": "Selina",
+            "last_name": "Kyle",
+            "gender": "M",
+            "hire_date": "1993-09-06"
+        }
+        ```
+    - To Delete a specific row by given ID **(DELETE)**
+        ```
+        http://localhost:3000/employees/deleteBy_emp_no/10076
         ```
