@@ -107,4 +107,5 @@ deleteSalary = (req, res, body) => {
     });
 };//End of deleteSalary
 
+
 module.exports = {getDataByPage, getDataByID, postAddSalary, putUpdateSalary, deleteSalary};

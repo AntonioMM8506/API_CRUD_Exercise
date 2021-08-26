@@ -55,9 +55,9 @@ app.delete('/salaries/delete', (req, res) => { salaries.deleteSalary(req, res, r
 //Titles .......................................
 app.get('/titles/:id', (req, res) => {  titles.getDataByPage(req, res, req.params.id) });
 app.get('/titles/emp_no/:id', (req, res) => { titles.getDataByID(req, res, req.params.id) });
-app.post('/titles/', (req, res) => { });
-app.put('/titles/', (req, res) => { });
-app.delete('/titles/', (req, res) => { });
+app.post('/titles/addTitle', (req, res) => { titles.postAddTitle(req, res, req.body) });
+app.put('/titles/updateTitle/:id', (req, res) => { titles.putUpdateTitle(req, res, req.params.id, req.body) });
+app.delete('/titles/deleteTitle/:id', (req, res) => { titles.deleteTitle(req, res, req.params.id) });
 
 
 //Dept_Emp .....................................
