@@ -6,7 +6,7 @@ const db_connection = connection.connection();
  * Description: Returns the whole table with pagination, each page will show 100 results
  */
 getDataByPage = (req, res, page) => {
-    let sql = ` SELECT * FROM salaries`;
+    let sql = "SELECT * FROM `salaries`";
 
     return db_connection.query(sql, (error, results)=>{
         if(error){
@@ -36,7 +36,7 @@ getDataByPage = (req, res, page) => {
  * Description: Returns a single element corresponding to the givne id
  */
 getDataByID = (req, res, id) => {
-    let sql = `SELECT * FROM salaries WHERE emp_no = ?`;
+    let sql = "SELECT * FROM `salaries` WHERE emp_no = ?";
 
     return db_connection.query(sql, id, (error, results) => {
         if(error){
@@ -51,4 +51,60 @@ getDataByID = (req, res, id) => {
 };//End of getDataByID
 
 
-module.exports = {getDataByPage, getDataByID}
+/**
+ * Description: Adds a new row to the table
+ */
+postAddSalary = (req, res, body) => {
+    let sql = 'INSERT INTO `employees` SET ?';
+
+    const newSalary = {
+        emp_no: body.emp_no,
+        salary: body.salary,
+        from_date: body.from_date,
+        to_date: body.to_date
+    };
+
+    return db_connection.query(sql, newSalary, error => {
+        if(error){
+            throw error;
+        }else{
+            res.send('New Salary added');
+        }
+    });
+};//End of postAddSalary
+
+
+/**
+ * Description: Updates a row with the given ID
+ */
+putUpdateSalary = (req, res, id, body) => {
+    let sql = "UPDATE `salaries` SET `salary`=? WHERE `emp_no`=? AND `salary`=?";
+    let args = [body.newSalary, id, body.salary];
+
+    return db_connection.query(sql, args, error => {
+        if(error){
+            throw error;
+        }else{
+            res.send(`Employe: ${id} salary updated succesfully`)
+        }
+    });
+};//End of putUpdateSalary
+
+
+/**
+ * Description: Deletes a row corresponded to the given ID
+ */
+deleteSalary = (req, res, body) => {
+    let sql = "DELETE FROM `salaries` WHERE `emp_no`=? AND `salary`=?";
+    const args = [body.emp_no, body.salary];
+
+    return db_connection.query(sql, args, error => {
+        if(error){
+            throw error;
+        }else{
+            res.send(`Record of salary deleted`);
+        }
+    });
+};//End of deleteSalary
+
+module.exports = {getDataByPage, getDataByID, postAddSalary, putUpdateSalary, deleteSalary};

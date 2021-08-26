@@ -73,7 +73,6 @@ postAddEmployee = (req, res, body) => {
             res.send('New Employee added');
         }
     });
-
 };//End of postAddEmployee
 
 
@@ -82,7 +81,7 @@ postAddEmployee = (req, res, body) => {
  */
 putUpdateEmployee = (req, res, id, body) => {
     let sql = "UPDATE `employees` SET `birth_date`=?, `first_name`=?, `last_name`=?, `gender`=?, `hire_date`=? WHERE `emp_no`=?";
-    let args = [body.birth_date, body.first_name, body.last_name, body.gender, body.hire_date, id];
+    const args = [body.birth_date, body.first_name, body.last_name, body.gender, body.hire_date, id];
 
     return db_connection.query(sql, args, error => {
         if(error){
@@ -90,7 +89,7 @@ putUpdateEmployee = (req, res, id, body) => {
         }else{
             res.send(`Employe: ${id} updated succesfully`)
         }
-    })
+    });
 };//End of putUpdateEmployee
 
 

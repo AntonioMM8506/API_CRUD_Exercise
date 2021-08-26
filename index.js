@@ -36,31 +36,41 @@ app.delete('/employees/deleteBy_emp_no/:id', (req, res)=>{ employees.deleteEmplo
 
 
 //The same strcuture is repeated for the other tables
-//TODO POST, PUT, DELETE
 //Departments .................................
 app.get('/departments/:id', (req, res) => { departments.getDataByPage(req, res, req.params.id) });
 app.get('/departments/dept_no/:id', (req, res) => { departments.getDataByID(req, res, req.params.id) });
+app.post('/departments/addDepartment', (req, res) => { departments.postAddDepartment(req, res, req.body) });
+app.put('/departments/updateDepartmentBy_dept_no/:id', (req, res) => { departments.putUpdateDepartmentByID(req, res, req.params.id, req.body) });
+app.delete('/departments/deleteDepartmentBy_dept_no/:id', (req, res) => { departments.deleteDepartmentByID(req, res, req.params.id) });
 
 
-//TODO POST, PUT, DELETE
 //Salaries .....................................
 app.get('/salaries/:id', (req, res) => { salaries.getDataByPage(req, res, req.params.id) });
 app.get('/salaries/emp_no/:id', (req, res) => { salaries.getDataByID(req, res, req.params.id) });
+app.post('/salaries/addSalary', (req, res) => { salaries.postAddSalary(req, res, req.body) });
+app.put('/salaries/updateBy_emp_no/:id', (req, res) => { salaries.putUpdateSalary(req, res, req.params.id, req.body) });
+app.delete('/salaries/delete', (req, res) => { salaries.deleteSalary(req, res, req.body) });
 
 
-//TODO POST, PUT, DELETE
 //Titles .......................................
 app.get('/titles/:id', (req, res) => {  titles.getDataByPage(req, res, req.params.id) });
 app.get('/titles/emp_no/:id', (req, res) => { titles.getDataByID(req, res, req.params.id) });
+app.post('/titles/', (req, res) => { });
+app.put('/titles/', (req, res) => { });
+app.delete('/titles/', (req, res) => { });
 
 
-//TODO POST, PUT, DELETE
 //Dept_Emp .....................................
 app.get('/dept_emp/:id', (req, res) => { dept_emp.getDataByPage(req, res, req.params.id) });
 app.get('/dept_emp/emp_no/:id', (req, res) => { dept_emp.getDataByID(req, res, req.params.id) });
+app.post('/dept_emp/', (req, res) => { });
+app.put('/dept_emp/', (req, res) => { });
+app.delete('/dept_emp/', (req, res) => { });
 
 
-//TODO POST, PUT, DELETE
 //Dept_Mananger ................................
 app.get('/dept_manager/:id', (req, res) => { dept_manager.getDataByPage(req, res, req.params.id) });
 app.get('/dept_manager/dept_no/:id', (req, res) => { dept_manager.getDataByID(req, res, req.params.id) });
+app.post('/dept_manager/', (req, res) => { });
+app.put('/dept_manager/', (req, res) => { });
+app.delete('/dept_manager/', (req, res) => { });
