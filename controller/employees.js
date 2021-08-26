@@ -6,7 +6,7 @@ const db_connection = connection.connection();
  * Description: Returns the whole table with pagination, each page will show 100 results
  */
 getDataByPage = (req, res, page) => {
-    let sql = ` SELECT * FROM employees`;
+    let sql = "SELECT * FROM `employees`";
 
     return db_connection.query(sql, (error, results)=>{
         if(error){
@@ -36,7 +36,7 @@ getDataByPage = (req, res, page) => {
  * Description: Returns a single element corresponding to the givne id
  */
 getDataByID = (req, res, id) => {
-    let sql = `SELECT * FROM employees WHERE emp_no = ?`;
+    let sql = "SELECT * FROM `employees` WHERE `emp_no` = ?";
 
     return db_connection.query(sql, id, (error, results) => {
         if(error){
@@ -55,7 +55,7 @@ getDataByID = (req, res, id) => {
  * Description: Adds a new row to the table
  */
 postAddEmployee = (req, res, body) => {
-    let sql = 'INSERT INTO employees SET ?';
+    let sql = 'INSERT INTO `employees` SET ?';
 
     const newEmployee = {
         emp_no: body.emp_no,
@@ -81,9 +81,10 @@ postAddEmployee = (req, res, body) => {
  * Description: Updates a row with the given ID
  */
 putUpdateEmployee = (req, res, id, body) => {
-    let sql = `UPDATE employees SET birth_date="${body.birth_date}", first_name="${body.first_name}", last_name="${body.last_name}", gender="${body.gender}", hire_date="${body.hire_date}" WHERE emp_no=?`;
+    let sql = "UPDATE `employees` SET `birth_date`=?, `first_name`=?, `last_name`=?, `gender`=?, `hire_date`=? WHERE `emp_no`=?";
+    let args = [body.birth_date, body.first_name, body.last_name, body.gender, body.hire_date, id];
 
-    return db_connection.query(sql, id, error => {
+    return db_connection.query(sql, args, error => {
         if(error){
             throw error;
         }else{
@@ -97,7 +98,7 @@ putUpdateEmployee = (req, res, id, body) => {
  * Description: Deletes a row corresponded to the given ID
  */
 deleteEmployeeByID = (req, res, id) => {
-    let sql = `DELETE FROM employees WHERE emp_no = ?`;
+    let sql = "DELETE FROM `employees` WHERE emp_no = ?";
 
     return db_connection.query(sql, id, error => {
         if(error){

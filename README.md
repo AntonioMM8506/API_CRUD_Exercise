@@ -24,7 +24,8 @@ npm i
 ```
 npm run dev
 ```
-# Example
+## Example
+Look at the attached images in the folder "postman"
 - To use the CRUD application with Postman
     - To Read **(GET)**
         - The first 100 entries of a table

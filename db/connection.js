@@ -1,6 +1,6 @@
 //Stablish the database connection with mysql dependency
 require('dotenv').config();
-const mysql = require('mysql');
+const mysql = require('mysql2');
 
 //TODO - Avoid SQL Injection
 //Database Connection -------------------------------------------------
