@@ -10,8 +10,6 @@ const employees = require('./controller/employees');
 const departments = require('./controller/departments');
 const salaries = require('./controller/salaries');
 const titles = require('./controller/titles');
-const dept_emp = require('./controller/dept_emp');
-const dept_manager = require('./controller/dept_manager');
 
 //body-parsing
 app.use(express.json());
@@ -59,18 +57,3 @@ app.post('/titles/addTitle', (req, res) => { titles.postAddTitle(req, res, req.b
 app.put('/titles/updateTitle/:id', (req, res) => { titles.putUpdateTitle(req, res, req.params.id, req.body) });
 app.delete('/titles/deleteTitle/:id', (req, res) => { titles.deleteTitle(req, res, req.params.id) });
 
-
-//Dept_Emp .....................................
-app.get('/dept_emp/:id', (req, res) => { dept_emp.getDataByPage(req, res, req.params.id) });
-app.get('/dept_emp/emp_no/:id', (req, res) => { dept_emp.getDataByID(req, res, req.params.id) });
-app.post('/dept_emp/', (req, res) => { });
-app.put('/dept_emp/', (req, res) => { });
-app.delete('/dept_emp/', (req, res) => { });
-
-
-//Dept_Mananger ................................
-app.get('/dept_manager/:id', (req, res) => { dept_manager.getDataByPage(req, res, req.params.id) });
-app.get('/dept_manager/dept_no/:id', (req, res) => { dept_manager.getDataByID(req, res, req.params.id) });
-app.post('/dept_manager/', (req, res) => { });
-app.put('/dept_manager/', (req, res) => { });
-app.delete('/dept_manager/', (req, res) => { });
